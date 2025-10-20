@@ -3,6 +3,7 @@
 - Load snakemake module using `module load bbc2/snakemake/snakemake-9.13.2`. 
 - Run `snakemake -np` to do a dryrun.
 - Run `snakemake --dag | dot -Tpng > dag.png` to view the workflow as a DAG.
+- Try `snakemake --rulegraph | dot -Tpng > rulegraph.png` to view the workflow as a simiplified DAG.
 - Do an actual run using the command, `snakemake --cores 2`.
 - Try to make the workflow count an additional word of your choice.
 - Uncomment the commented line in `rule all`. What shows up now when you run `snakemake -np`?
