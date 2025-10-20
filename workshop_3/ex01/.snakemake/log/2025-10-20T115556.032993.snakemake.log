@@ -1,0 +1,37 @@
+Assuming unrestricted shared filesystem usage.
+host: submit003
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+all                      1
+sum_letter_counts        1
+total                    2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Oct 20 11:55:56 2025]
+localrule sum_letter_counts:
+    input: results/count_letters/foobar.txt, results/count_letters/foobarfoobar.txt
+    output: results/sum_letter_counts/summed.txt
+    jobid: 3
+    reason: Missing output files: results/sum_letter_counts/summed.txt; Code has changed since last execution
+    resources: tmpdir=/var/tmp
+[Mon Oct 20 11:55:56 2025]
+Finished jobid: 3 (Rule: sum_letter_counts)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Oct 20 11:55:56 2025]
+localrule all:
+    input: results/count_letters/foobar.txt, results/count_letters/foobarfoobar.txt, results/sum_letter_counts/summed.txt
+    jobid: 0
+    reason: Input files updated by another job: results/sum_letter_counts/summed.txt
+    resources: tmpdir=/var/tmp
+[Mon Oct 20 11:55:56 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /varidata/research/projects/bbc/research/bioinfo_workshop_2025/workshop_2/ex01/.snakemake/log/2025-10-20T115556.032993.snakemake.log

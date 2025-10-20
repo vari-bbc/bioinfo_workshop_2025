@@ -1,0 +1,43 @@
+Assuming unrestricted shared filesystem usage.
+host: submit003
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+count_letters        1
+total                2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Oct 20 11:47:07 2025]
+localrule count_letters:
+    output: results/count_letters/foobar.txt
+    jobid: 1
+    reason: Missing output files: results/count_letters/foobar.txt
+    wildcards: word=foobar
+    resources: tmpdir=/var/tmp
+Waiting at most 5 seconds for missing files:
+results/count_letters/foobar.txt (missing locally)
+MissingOutputException in rule count_letters in file "/varidata/research/projects/bbc/research/bioinfo_workshop_2025/workshop_2/ex01/Snakefile", line 6:
+Job 1  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+results/count_letters/foobar.txt (missing locally, parent dir contents: )
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon Oct 20 11:47:12 2025]
+Error in rule count_letters:
+    message: None
+    jobid: 1
+    output: results/count_letters/foobar.txt
+    shell:
+        
+        printf "foobar" | wc -c
+
+        
+        (command exited with non-zero exit code)
+Complete log(s): /varidata/research/projects/bbc/research/bioinfo_workshop_2025/workshop_2/ex01/.snakemake/log/2025-10-20T114707.024830.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

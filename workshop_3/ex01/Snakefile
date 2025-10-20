@@ -1,0 +1,27 @@
+
+rule all:
+    input: 
+        "results/count_letters/foobar.txt",
+        "results/count_letters/foobarfoobar.txt",
+        #"results/sum_letter_counts/summed.txt"
+
+rule count_letters:
+    input:
+    output:
+        "results/count_letters/{word}.txt"
+    shell:
+        """
+        printf "{wildcards.word}" | wc -c > {output}
+
+        """
+
+rule sum_letter_counts:
+    input:
+        expand("results/count_letters/{prefix}.txt", prefix=['foobar','foobarfoobar'])
+    output:
+        "results/sum_letter_counts/summed.txt"
+    shell:
+        """
+        cat {input} | awk '{{sum += $1}} END {{print "Total:", sum}}' > {output}
+
+        """

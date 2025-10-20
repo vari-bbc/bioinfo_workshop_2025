@@ -1,0 +1,2 @@
+Assuming unrestricted shared filesystem usage.
+Error: cores have to be specified for local execution (use --cores N with N being a number >= 1 or 'all')
