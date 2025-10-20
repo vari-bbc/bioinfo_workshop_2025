@@ -1,2 +1,4 @@
 .snakemake
+.nextflow*
+work
 results
