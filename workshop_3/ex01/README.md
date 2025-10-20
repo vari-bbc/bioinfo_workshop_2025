@@ -14,6 +14,7 @@
 ```
 import pandas as pd
 
-words = pd.read_csv(config["words.csv"], dtype={"word": str})
+words = pd.read_csv("words.csv", dtype={"word": str})
 
+print(words['word'])
 ```
