@@ -19,3 +19,17 @@ words = pd.read_csv("words.csv", dtype={"word": str})
 
 print(words['word'])
 ```
+- What do you think will happen if you put the following code into the `Snakefile`?
+```
+rule fake_rule:
+    input:
+    output:
+        "results/sum_letter_counts/summed.txt"
+    shell:
+        """
+        echo "This rule does nothing"
+
+        """
+
+
+```
